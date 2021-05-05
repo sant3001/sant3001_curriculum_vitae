@@ -1,0 +1,1 @@
+exports.onPreInit = () => console.log("Loaded cv-data plugin");
