@@ -83,4 +83,14 @@ body {
 .main .colored.rounded-circle svg {
     color: white;
     font-size: 1.6rem;
+    margin-top: -0.3rem;
+}
+.rounded-circle .gatsby-image-wrapper {
+    height: 100%;
+}
+.rounded-circle .gatsby-image-wrapper div[data-placeholder-image] {
+    transition: unset !important;
+}
+.rounded-circle picture img {
+    border-radius: 50%!important;
 }
