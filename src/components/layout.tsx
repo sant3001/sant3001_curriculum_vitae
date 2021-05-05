@@ -1,12 +1,8 @@
-import * as React from "react";
-import "./layout.css";
+import * as React from 'react';
+import './layout.css';
 
 const Layout: React.FC = ({ children }) => {
-  return (
-    <div className="container-lg a4">
-      {children}
-    </div>
-  );
+  return <div className="container-lg a4">{children}</div>;
 };
 
-export default Layout
+export default Layout;

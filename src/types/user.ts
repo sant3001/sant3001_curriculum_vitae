@@ -1,4 +1,4 @@
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { FileNode } from 'gatsby-plugin-image/dist/src/components/hooks';
 
 export interface User {
   about: string;

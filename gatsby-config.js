@@ -37,21 +37,21 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "src": `${__dirname}/src`,
-          "components": `${__dirname}/src/components`,
-          "types": `${__dirname}/src/types`,
-          "pages": `${__dirname}/src/pages`,
+          src: `${__dirname}/src`,
+          components: `${__dirname}/src/components`,
+          types: `${__dirname}/src/types`,
+          pages: `${__dirname}/src/pages`,
         },
-        extensions: ["js", 'ts', 'tsx'],
-      }
+        extensions: ['js', 'ts', 'tsx'],
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Montserrat`, 'IM Fell French Canon SC'],
-        display: 'swap'
-      }
+        display: 'swap',
+      },
     },
     'cvdata',
   ],
-}
+};

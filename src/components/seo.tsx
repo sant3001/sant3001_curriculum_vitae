@@ -1,7 +1,7 @@
-import * as React from "react"
-import { Helmet, HelmetProps } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { SiteMetaData } from "types"
+import { useStaticQuery, graphql } from 'gatsby';
+import * as React from 'react';
+import { Helmet, HelmetProps } from 'react-helmet';
+import { SiteMetaData } from 'types';
 
 interface SeoProps {
   description?: string;
@@ -15,7 +15,15 @@ interface SiteMetaQuery {
 }
 
 const siteMetaQuery = graphql`
-  query SiteMetaQuery { site { siteMetadata { title description author } } }
+  query SiteMetaQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
 `;
 
 const Seo = ({ description = '', lang = 'en', meta = [], title }: SeoProps): JSX.Element => {

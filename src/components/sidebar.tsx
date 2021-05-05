@@ -1,9 +1,8 @@
-import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { IGatsbyImageData } from "gatsby-plugin-image"
-import { User, Skill } from 'types';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import React from 'react';
 import { BsGeoAlt, BsEnvelopeFill } from 'react-icons/bs';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { User, Skill } from 'types';
 
 interface SkillProps {
   skill: Skill;
@@ -40,7 +39,7 @@ interface SideBarProps {
   image?: IGatsbyImageData;
 }
 
-const Sidebar = ({ user, image }: SideBarProps) => {
+const Sidebar = ({ user, image }: SideBarProps): JSX.Element => {
   return (
     <div className="col-sm-4 col-xs-12 colored p-4">
       {image && (
@@ -123,13 +122,15 @@ const Sidebar = ({ user, image }: SideBarProps) => {
           </div>
           <div className="mt-4 skills">
             <div className="row align-items-center row-cols-2 gy-2">
-              {ss.skills.map((p) => <SkillRow key={p.id} skill={p} />)}
+              {ss.skills.map((p) => (
+                <SkillRow key={p.id} skill={p} />
+              ))}
             </div>
           </div>
         </React.Fragment>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar;
