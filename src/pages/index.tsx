@@ -2,6 +2,7 @@ import * as React from "react";
 import Layout from "components/layout";
 import Seo from "components/seo";
 import Sidebar from "components/sidebar";
+import Main from "components/Main";
 import { User } from "types";
 import { graphql, PageProps } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
@@ -18,6 +19,7 @@ const IndexPage = (props: PageProps<GetUserQuery>): JSX.Element => {
       <Seo title="Home" />
       <div className="row">
         <Sidebar user={user} image={image} />
+        <Main />
       </div>
     </Layout>
   );

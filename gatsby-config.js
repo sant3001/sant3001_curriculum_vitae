@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: `/cv`,
+  pathPrefix: process.env.NODE_ENV === 'development' ? undefined : `/cv`,
   siteMetadata: {
     title: 'Santiago Bendavid',
     description: 'Front-End Web Developer',

@@ -42,12 +42,12 @@ interface SideBarProps {
 
 const Sidebar = ({ user, image }: SideBarProps) => {
   return (
-    <div className="col-4 colored p-4">
+    <div className="col-sm-4 col-xs-12 colored p-4">
       {image && (
-        <div className="mt-5">
+        <div className="mt-2 mt-sm-5">
           <div className="row">
-            <div className="col-sm-11 mx-auto">
-              <GatsbyImage image={image} alt={user.imgAlt} className="img-fluid rounded-circle" />
+            <div className="col-8 col-sm-11 mx-auto rounded-circle p-0 overflow-hidden">
+              <GatsbyImage image={image} alt={user.imgAlt} className="img-fluid" />
             </div>
           </div>
         </div>

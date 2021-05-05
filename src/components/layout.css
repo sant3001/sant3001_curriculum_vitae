@@ -17,6 +17,16 @@ body {
     height: 1357px;
     font-family: 'Montserrat', sans-serif;
 }
+@media (max-width: 768px) {
+    .a4 {
+        height: 1500px;
+    }
+}
+@media (max-width: 576px) {
+    .a4 {
+        height: initial;
+    }
+}
 .a4>.row {
     height: 100%;
 }
@@ -55,7 +65,7 @@ body {
     position: relative;
 }
 .strip {
-    height: 100%;
+    height: calc(100% - 1.5rem); /* pt-4 */
     width: 0.25rem;
     position: absolute;
     right: 0;
@@ -70,7 +80,7 @@ body {
     top: -0.3rem;
     z-index: 10;
 }
-.main .colored.rounded-circle i {
+.main .colored.rounded-circle svg {
     color: white;
     font-size: 1.6rem;
 }
