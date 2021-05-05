@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+    font-size: 0.7rem;
+}
+.mt-n1 {
+    margin-top: -0.25rem !important;
+}
+.mt-n2 {
+    margin-top: -.5rem!important;
+}
+.text-justify {
+    text-align: justify;
+}
+.a4 {
+    /* 210x297 */
+    max-width: 960px;
+    height: 1357px;
+    font-family: 'Montserrat', sans-serif;
+}
+.a4>.row {
+    height: 100%;
+}
+.a4>.row>div {
+    height: 100%;
+}
+.colored {
+    background-color: #00334D;
+    color: white;
+}
+.white {
+    background-color: white;
+}
+.title {
+    font-family: 'IM Fell French Canon SC', "Droid Serif", serif;
+    letter-spacing: -0.065rem;
+}
+.contact svg {
+    font-size: 2rem;
+    width: 100%;
+}
+.contact p {
+    font-size: 0.8rem;
+}
+.contact p a {
+    color: white;
+    text-decoration: none;
+}
+.skills .progress {
+    height: 0.8rem;
+}
+.main, .main>.row, .main>.row>.col-1 {
+    height: 100%;
+}
+.main>.row>.col-1, .category {
+    position: relative;
+}
+.strip {
+    height: 100%;
+    width: 0.25rem;
+    position: absolute;
+    right: 0;
+    border-radius: 0.25rem;
+}
+.main .colored.rounded-circle {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    position: absolute;
+    left: -4.7rem;
+    top: -0.3rem;
+    z-index: 10;
+}
+.main .colored.rounded-circle i {
+    color: white;
+    font-size: 1.6rem;
+}

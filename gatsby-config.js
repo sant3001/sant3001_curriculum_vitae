@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Santiago Bendavid',
+    description: 'Front-End Web Developer',
+    author: `@sant3001`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -32,5 +32,25 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "src": `${__dirname}/src`,
+          "components": `${__dirname}/src/components`,
+          "types": `${__dirname}/src/types`,
+          "pages": `${__dirname}/src/pages`,
+        },
+        extensions: ["js", 'ts', 'tsx'],
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Montserrat`, 'IM Fell French Canon SC'],
+        display: 'swap'
+      }
+    },
+    'cvdata',
   ],
 }
