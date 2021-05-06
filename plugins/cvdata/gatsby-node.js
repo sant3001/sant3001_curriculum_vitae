@@ -58,8 +58,8 @@ const createSchemaCustomization = ({ actions }) => {
       website: String
     }
     type ${DURATION_NODE_TYPE} {
-      start: Date! @dateformat(formatString: "DD-MM-YYYY")
-      end: Date @dateformat(formatString: "DD-MM-YYYY")
+      start: Date! @dateformat(formatString: "DD-MMM-YYYY")
+      end: Date @dateformat(formatString: "DD-MMM-YYYY")
     }
     type ${LOCATION_NODE_TYPE} {
       city: String

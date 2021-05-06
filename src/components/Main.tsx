@@ -8,8 +8,8 @@ interface MainProps {
 }
 
 const Main = ({ user }: MainProps): JSX.Element => {
-  const formatExp = (date: Date) => moment(date, 'DD-MM-YYYY').format('MMM YYYY');
-  const formatEdu = (date: Date) => moment(date, 'DD-MM-YYYY').format('YYYY');
+  const formatExp = (date: Date) => moment(date, 'DD-MMM-YYYY').format('MMM YYYY');
+  const formatEdu = (date: Date) => moment(date, 'DD-MMM-YYYY').format('YYYY');
   return (
     <div className="main col-sm-8 col-xs-12 white p-4 pt-5">
       <div className="row">
