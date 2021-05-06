@@ -1,9 +1,13 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
-  pathPrefix: process.env.NODE_ENV === 'development' ? undefined : `/cv`,
+  pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
-    title: 'Santiago Bendavid',
-    description: 'Front-End Web Developer',
-    author: `@sant3001`,
+    title: process.env.SITE_TITLE,
+    description: process.env.SITE_DESCRIPTION,
+    author: process.env.SITE_AUTHOR,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -23,8 +27,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000000`,
+        theme_color: `#00334D`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

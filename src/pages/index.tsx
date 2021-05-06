@@ -1,6 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import { HelmetProps } from 'react-helmet';
 import Layout from 'components/layout';
 import Main from 'components/Main';
 import Seo from 'components/seo';
@@ -16,9 +17,16 @@ const IndexPage = (props: PageProps<GetUserQuery>): JSX.Element => {
     data: { user },
   } = props;
   const image = getImage(user.img);
+  const imgUrl = image?.images.fallback?.src;
+  // Remove last slash
+  const siteUrl = (process.env.SITE_URL || '').replace(/\/$/, '');
+  const pathPrefix = process.env.PATH_PREFIX || '';
+  const meta: HelmetProps['meta'] = [];
+  if (imgUrl) meta.push({ name: 'image', property: 'og:image', content: `${siteUrl}${imgUrl}` });
+  if (siteUrl) meta.push({ property: 'og:url', content: `${siteUrl}${pathPrefix}/` });
   return (
     <Layout>
-      <Seo title="Resume" />
+      <Seo title="Resume" meta={meta} />
       <div className="row">
         <Sidebar user={user} image={image} />
         <Main user={user} />

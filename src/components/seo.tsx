@@ -31,14 +31,16 @@ const Seo = ({ description = '', lang = 'en', meta = [], title }: SeoProps): JSX
 
   const metaDescription = description || site.siteMetadata?.description;
   const defaultTitle = site.siteMetadata?.title;
+  const titleTemplate = defaultTitle ? `%s | ${defaultTitle}` : undefined;
   const defaultMeta: HelmetProps['meta'] = [
     {
       name: `description`,
       content: metaDescription,
     },
     {
+      name: 'title',
       property: `og:title`,
-      content: title,
+      content: titleTemplate ? titleTemplate.replace('%s', title) : title,
     },
     {
       property: `og:description`,
@@ -72,14 +74,7 @@ const Seo = ({ description = '', lang = 'en', meta = [], title }: SeoProps): JSX
     else combinedMeta.push(m);
   });
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
-      meta={combinedMeta}
-    />
-  );
+  return <Helmet htmlAttributes={{ lang }} title={title} titleTemplate={titleTemplate} meta={combinedMeta} />;
 };
 
 export default Seo;
