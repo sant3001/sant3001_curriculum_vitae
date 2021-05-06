@@ -18,7 +18,7 @@ const IndexPage = (props: PageProps<GetUserQuery>): JSX.Element => {
   const image = getImage(user.img);
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Resume" />
       <div className="row">
         <Sidebar user={user} image={image} />
         <Main user={user} />
