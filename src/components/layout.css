@@ -14,29 +14,7 @@ body {
 .a4 {
     /* 210x297 */
     max-width: 960px;
-    height: 1357px;
     font-family: 'Montserrat', sans-serif;
-}
-@media (max-width: 992px) {
-    .a4 {
-        height: 1500px;
-    }
-}
-@media (max-width: 768px) {
-    .a4 {
-        height: 1800px;
-    }
-}
-@media (max-width: 576px) {
-    .a4 {
-        height: initial;
-    }
-}
-.a4>.row {
-    height: 100%;
-}
-.a4>.row>div {
-    height: 100%;
 }
 .colored {
     background-color: #00334D;
@@ -63,14 +41,11 @@ body {
 .skills .progress {
     height: 0.8rem;
 }
-.main, .main>.row, .main>.row>.col-1 {
-    height: 100%;
-}
 .main>.row>.col-1, .category {
     position: relative;
 }
 .strip {
-    height: calc(100% - 1.5rem); /* pt-4 */
+    height: 100%;
     width: 0.25rem;
     position: absolute;
     right: 0;
