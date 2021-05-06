@@ -21,7 +21,7 @@ const IndexPage = (props: PageProps<GetUserQuery>): JSX.Element => {
       <Seo title="Home" />
       <div className="row">
         <Sidebar user={user} image={image} />
-        <Main />
+        <Main user={user} />
       </div>
     </Layout>
   );
@@ -51,6 +51,38 @@ export const query = graphql`
           name
           value
         }
+      }
+      experience {
+        id
+        company {
+          name
+          website
+        }
+        location {
+          city
+          state
+          country
+        }
+        role
+        duration {
+          start
+          end
+        }
+        description
+      }
+      education {
+        id
+        college
+        location {
+          city
+          state
+          country
+        }
+        duration {
+          start
+          end
+        }
+        degree
       }
     }
   }

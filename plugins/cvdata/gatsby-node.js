@@ -4,6 +4,11 @@ const createNodeFromData = require('./createNodeFromData');
 const USER_NODE_TYPE = `User`;
 const SKILL_SET_TYPE = `SkillSet`;
 const SKILL_NODE_TYPE = `Skill`;
+const EXPERIENCE_NODE_TYPE = `Experience`;
+const EDUCATION_NODE_TYPE = `Education`;
+const COMPANY_NODE_TYPE = `Company`;
+const DURATION_NODE_TYPE = `Duration`;
+const LOCATION_NODE_TYPE = `Location`;
 
 const createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -20,16 +25,46 @@ const createSchemaCustomization = ({ actions }) => {
       phoneNumber: String!
       email: String!
       skillsSet: [${SKILL_SET_TYPE}!]!
+      experience: [${EXPERIENCE_NODE_TYPE}!]!
+      education: [${EDUCATION_NODE_TYPE}!]!
     }
-    type ${SKILL_SET_TYPE} implements Node {
+    type ${SKILL_SET_TYPE} {
       id: ID!
       name: String!
       skills: [${SKILL_NODE_TYPE}!]!
     }
-    type ${SKILL_NODE_TYPE} implements Node {
+    type ${SKILL_NODE_TYPE} {
       id: ID!
       name: String!
       value: Int!
+    }
+    type ${EXPERIENCE_NODE_TYPE} {
+      id: ID!
+      company: ${COMPANY_NODE_TYPE}!
+      location: ${LOCATION_NODE_TYPE}
+      role: String!
+      duration: ${DURATION_NODE_TYPE}!
+      description: String!
+    }
+    type ${EDUCATION_NODE_TYPE} {
+      id: ID!
+      college: String!
+      location: ${LOCATION_NODE_TYPE}!
+      duration: ${DURATION_NODE_TYPE}!
+      degree: String!
+    }
+    type ${COMPANY_NODE_TYPE} {
+      name: String!
+      website: String
+    }
+    type ${DURATION_NODE_TYPE} {
+      start: Date! @dateformat(formatString: "DD-MM-YYYY")
+      end: Date @dateformat(formatString: "DD-MM-YYYY")
+    }
+    type ${LOCATION_NODE_TYPE} {
+      city: String
+      state: String
+      country: String
     }
   `);
 };
