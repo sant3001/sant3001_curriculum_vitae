@@ -10,6 +10,7 @@ module.exports = {
     author: process.env.SITE_AUTHOR,
   },
   plugins: [
+    `gatsby-plugin-pnpm`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
