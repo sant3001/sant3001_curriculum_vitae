@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { FC } from 'react';
 import { FaBriefcase, FaUniversity } from 'react-icons/fa';
 import { User } from 'types';
 
@@ -7,7 +7,7 @@ interface MainProps {
   user: User;
 }
 
-const Main = ({ user }: MainProps): JSX.Element => {
+const Main: FC<MainProps> = ({ user }) => {
   const formatExp = (date: Date) => moment(date, 'DD-MMM-YYYY').format('MMM YYYY');
   const formatEdu = (date: Date) => moment(date, 'DD-MMM-YYYY').format('YYYY');
   return (

@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Santiago Bendavid Curriculum Vitae`,
+        short_name: `sant3001_curriculum_vitae`,
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#00334D`,

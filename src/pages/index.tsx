@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
-import * as React from 'react';
+import React, { FC } from 'react';
 import { HelmetProps } from 'react-helmet';
 import Layout from 'components/layout';
 import Main from 'components/Main';
@@ -12,7 +12,7 @@ interface GetUserQuery {
   user: User;
 }
 
-const IndexPage = (props: PageProps<GetUserQuery>): JSX.Element => {
+const IndexPage: FC<PageProps<GetUserQuery>> = (props) => {
   const {
     data: { user },
   } = props;

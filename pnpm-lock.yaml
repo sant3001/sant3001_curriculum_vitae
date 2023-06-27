@@ -58,7 +58,7 @@ dependencies:
     version: 18.2.0
   react-bootstrap:
     specifier: 2.8.0
-    version: 2.8.0(react-dom@18.2.0)(react@18.2.0)
+    version: 2.8.0(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
@@ -70,6 +70,9 @@ dependencies:
     version: 4.10.1(react@18.2.0)
 
 devDependencies:
+  '@types/react':
+    specifier: 18.2.14
+    version: 18.2.14
   '@types/react-helmet':
     specifier: 6.1.6
     version: 6.1.6
@@ -113,10 +116,10 @@ devDependencies:
     specifier: 0.2.17
     version: 0.2.17
   eslint-webpack-plugin:
-    specifier: ^4.0.1
+    specifier: 4.0.1
     version: 4.0.1(eslint@8.43.0)(webpack@5.88.0)
   gatsby-plugin-pnpm:
-    specifier: ^1.2.10
+    specifier: 1.2.10
     version: 1.2.10(gatsby@5.11.0)
   prettier:
     specifier: 2.8.8
@@ -8711,7 +8714,7 @@ packages:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  /react-bootstrap@2.8.0(react-dom@18.2.0)(react@18.2.0):
+  /react-bootstrap@2.8.0(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-e/aNtxl0Z2ozrIaR82jr6Zz7ss9GSoaXpQaxmvtDUsTZIq/XalkduR/ZXP6vbQHz2T4syvjA+4FbtwELxxmpww==}
     peerDependencies:
       '@types/react': '>=16.14.8'
@@ -8724,6 +8727,7 @@ packages:
       '@babel/runtime': 7.22.5
       '@restart/hooks': 0.4.9(react@18.2.0)
       '@restart/ui': 1.6.6(react-dom@18.2.0)(react@18.2.0)
+      '@types/react': 18.2.14
       '@types/react-transition-group': 4.4.6
       classnames: 2.3.2
       dom-helpers: 5.2.1

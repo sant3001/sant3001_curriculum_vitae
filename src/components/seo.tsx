@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Helmet, HelmetProps } from 'react-helmet';
 import { SiteMetaData } from 'types';
 
@@ -14,7 +14,7 @@ interface SiteMetaQuery {
   site: { siteMetadata?: SiteMetaData };
 }
 
-const siteMetaQuery = graphql`
+const siteMetaQuery = graphql/* GraphQL */ `
   query SiteMetaQuery {
     site {
       siteMetadata {
@@ -26,7 +26,7 @@ const siteMetaQuery = graphql`
   }
 `;
 
-const Seo = ({ description = '', lang = 'en', meta = [], title }: SeoProps): JSX.Element => {
+const Seo: FC<SeoProps> = ({ description = '', lang = 'en', meta = [], title }) => {
   const { site } = useStaticQuery<SiteMetaQuery>(siteMetaQuery);
 
   const metaDescription = description || site.siteMetadata?.description;

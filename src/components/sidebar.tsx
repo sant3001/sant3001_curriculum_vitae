@@ -1,5 +1,5 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { FC, useMemo } from 'react';
 import { BsGeoAlt, BsEnvelopeFill } from 'react-icons/bs';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { User, Skill } from 'types';
@@ -8,11 +8,14 @@ interface SkillProps {
   skill: Skill;
 }
 
-const SkillRow = ({ skill }: SkillProps): JSX.Element => {
-  const classes = ['progress-bar'];
-  if (skill.value === 100) classes.push('bg-success');
-  else if (skill.value > 50) classes.push('bg-warning');
-  else classes.push('bg-danger');
+const SkillRow: FC<SkillProps> = ({ skill }) => {
+  const classes = useMemo(() => {
+    let progressClass = 'bg-danger';
+    if (skill.value === 100) progressClass = 'bg-success';
+    else if (skill.value >= 50) progressClass = 'bg-warning';
+    return ['progress-bar', progressClass];
+  }, [skill.value]);
+
   return (
     <>
       <div className="col-4 col-md-4">
@@ -39,7 +42,7 @@ interface SideBarProps {
   image?: IGatsbyImageData;
 }
 
-const Sidebar = ({ user, image }: SideBarProps): JSX.Element => {
+const Sidebar: FC<SideBarProps> = ({ user, image }) => {
   return (
     <div className="col-sm-4 col-xs-12 colored overflow-hidden p-4 pb-5 p-sm-3 pb-sm-5 p-md-4 pb-md-5">
       {image && (

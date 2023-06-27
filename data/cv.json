@@ -1,7 +1,7 @@
 [
   {
     "name": "Santiago Bendavid",
-    "title": "Front-end Web Developer",
+    "title": "React Developer",
     "about": "I'm a passionate developer who loves to dance salsa. I enjoy learning new technologies in which I invest a large portion of my free time. At the same time I am devoted to have a clean code basis with well defined types and useful test cases.",
     "img": "HeadShotSantiago.jpeg",
     "imgAlt": "Santiago Bendavid Profile Picture",
@@ -29,7 +29,7 @@
           { "id": "javascript", "name": "JavaScript", "value": 100 },
           { "id": "typescript", "name": "TypeScript", "value": 100 },
           { "id": "html", "name": "HTML 5", "value": 95 },
-          { "id": "css", "name": "CSS/SASS", "value": 90 },
+          { "id": "css", "name": "CSS/SASS", "value": 95 },
           { "id": "php", "name": "PHP", "value": 50 },
           { "id": "python", "name": "Python", "value": 40 }
         ]
