@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "sant3001_curriculum_vitae",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Santiago Bendavid Curriculum Vitae",
+  "version": "1.0.0",
+  "author": "Santiago Bendavid <santiago@bendavid.me>",
   "dependencies": {
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.0",
