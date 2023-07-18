@@ -1,8 +1,9 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+import dotEnv from 'dotenv';
+import type { GatsbyConfig } from 'gatsby';
 
-module.exports = {
+dotEnv.config({ path: `.env${process.env.NODE_ENV ? `.${process.env.NODE_ENV}` : ''}` });
+
+const config: GatsbyConfig = {
   pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
     title: process.env.SITE_TITLE,
@@ -31,7 +32,7 @@ module.exports = {
         background_color: `#000000`,
         theme_color: `#00334D`,
         display: `minimal-ui`,
-        icon: `src/images/${process.env.FAVICON}`, // This path is relative to the root of the site.
+        icon: process.env.FAVICON ? `src/images/${process.env.FAVICON}` : undefined, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
@@ -60,3 +61,5 @@ module.exports = {
     'cvdata',
   ],
 };
+
+export default config;

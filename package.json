@@ -28,7 +28,9 @@
     "react-icons": "4.10.1"
   },
   "devDependencies": {
+    "@types/node": "20.4.2",
     "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.7",
     "@types/react-helmet": "6.1.6",
     "@typescript-eslint/parser": "5.60.1",
     "eslint": "^8.43.0",
@@ -45,7 +47,8 @@
     "eslint-plugin-tsdoc": "0.2.17",
     "eslint-webpack-plugin": "4.0.1",
     "gatsby-plugin-pnpm": "1.2.10",
-    "prettier": "2.8.8"
+    "prettier": "2.8.8",
+    "typescript": "5.1.6"
   },
   "keywords": [
     "gatsby"
@@ -60,7 +63,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",

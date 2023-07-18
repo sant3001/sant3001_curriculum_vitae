@@ -32,6 +32,7 @@ module.exports = {
           ['components', path.resolve(__dirname, './src/components')],
           ['pages', path.resolve(__dirname, './src/pages')],
           ['types', path.resolve(__dirname, './src/types')],
+          ['plugins', path.resolve(__dirname, './plugins')],
         ],
         extensions: ['.ts', '.js', '.jsx', '.tsx'],
       },

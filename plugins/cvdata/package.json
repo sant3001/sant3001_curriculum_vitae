@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Data Fetching for CV",
   "main": "index.js",
+  "types": "types.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo \"No build script setup\""
+  },
+  "devDependencies": {
+    "gatsby": "5.11.0",
+    "gatsby-plugin-image": "3.11.0"
   },
   "keywords": [
     "gatsby",

@@ -1,6 +1,18 @@
-import { FileNode } from 'gatsby-plugin-image/dist/src/components/hooks';
+import type { ImageDataLike } from 'gatsby-plugin-image/dist/src/components/hooks';
+
+export enum NodeType {
+  USER_NODE_TYPE = `User`,
+  SKILL_SET_TYPE = `SkillSet`,
+  SKILL_NODE_TYPE = `Skill`,
+  EXPERIENCE_NODE_TYPE = `Experience`,
+  EDUCATION_NODE_TYPE = `Education`,
+  COMPANY_NODE_TYPE = `Company`,
+  DURATION_NODE_TYPE = `Duration`,
+  LOCATION_NODE_TYPE = `Location`,
+}
 
 export interface User {
+  id: string;
   about: string;
   imgAlt: string;
   name: string;
@@ -9,7 +21,7 @@ export interface User {
   addressLine2: string;
   phoneNumber: string;
   email: string;
-  img: FileNode;
+  img: ImageDataLike;
   skillsSet: SkillSet[];
   experience: Experience[];
   education: Education[];
