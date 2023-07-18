@@ -5,14 +5,14 @@ export const users: User[] = [
     id: 'santiago-bendavid',
     name: 'Santiago Bendavid',
     title: 'Senior Full Stack Developer',
-    about: `Highly skilled Senior Full Stack Developer with 10 years of experience in designing and developing robust web applications. 
-    Adept at leveraging a comprehensive stack of technologies, including front-end frameworks, back-end languages, and databases to create scalable and efficient solutions. 
-    Demonstrated expertise in leading cross-functional development teams, collaborating with stakeholders, and delivering innovative software products. 
-    Passionate about staying updated with the latest industry trends and continuously enhancing skills to deliver cutting-edge solutions. 
-    Committed to delivering clean, maintainable code and ensuring optimal user experiences. 
-    Strong problem-solving abilities and a track record of successfully completing complex projects on time and within budget. 
-    A proactive communicator and natural team player, dedicated to fostering a collaborative and positive work environment.
-    Seeking new opportunities to apply my technical expertise and drive impactful outcomes.`,
+    about: `Highly skilled **Senior Full Stack Developer** with 10 years of experience in designing and developing robust web applications.\n\n
+* Adept at leveraging a comprehensive stack of technologies, including front-end frameworks, back-end languages, and databases to create scalable and efficient solutions.\n
+* Demonstrated expertise in leading cross-functional development teams, collaborating with stakeholders, and delivering innovative software products.\n
+* Passionate about staying updated with the latest industry trends and continuously enhancing skills to deliver cutting-edge solutions.\n
+* Committed to delivering clean, maintainable code and ensuring optimal user experiences.\n
+* Strong problem-solving abilities and a track record of successfully completing complex projects on time and within budget.\n
+* A proactive communicator and natural team player, dedicated to fostering a collaborative and positive work environment.\n
+`,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     img: 'HeadShotSantiago.jpeg',
@@ -50,7 +50,7 @@ export const users: User[] = [
         id: 'ocelot',
         company: { name: 'Ocelot', website: 'https://www.ocelotbot.com/' },
         location: { city: 'Remote' },
-        role: 'Senior Front-end Developer',
+        role: 'Senior Full-Stack Developer',
         duration: {
           start: new Date('2019-02-01T05:00:00.000Z'),
         },

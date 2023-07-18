@@ -2,6 +2,7 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { FC, useMemo } from 'react';
 import { BsGeoAlt, BsEnvelopeFill } from 'react-icons/bs';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { useMarkdownToHTML } from 'src/hooks';
 import { User, Skill } from 'types';
 
 interface SkillProps {
@@ -43,6 +44,8 @@ interface SideBarProps {
 }
 
 const Sidebar: FC<SideBarProps> = ({ user, image }) => {
+  const html = useMarkdownToHTML(user.about);
+
   return (
     <div className="col-sm-4 col-xs-12 colored overflow-hidden p-4 pb-5 p-sm-3 pb-sm-5 p-md-4 pb-md-5">
       {image && (
@@ -64,12 +67,16 @@ const Sidebar: FC<SideBarProps> = ({ user, image }) => {
           <h2 className="h6">{user.title}</h2>
         </div>
       )}
-      {user.about && (
+      {html && (
         <>
           <div className="mt-5 text-center">
             <h5>About Me</h5>
           </div>
-          <p className="text-justify">{user.about}</p>
+          <div
+            className="text-justify"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </>
       )}
       {(user.addressLine1 || user.phoneNumber || user.email) && (
