@@ -31,7 +31,11 @@ export const ExperienceRow: FC<ExperienceRowProps> = (props) => {
       <p className="text-uppercase mb-2">
         {formatExp(exp.duration.start)} - {exp.duration.end ? formatExp(exp.duration.end) : 'Present'}
       </p>
-      <div className="mb-4 text-justify" dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className="mb-4 text-justify"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 };
