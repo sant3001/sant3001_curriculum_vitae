@@ -12,7 +12,7 @@ interface SkillProps {
 const SkillRow: FC<SkillProps> = ({ skill }) => {
   const classes = useMemo(() => {
     let progressClass = 'bg-danger';
-    if (skill.value === 100) progressClass = 'bg-success';
+    if (skill.value >= 90) progressClass = 'bg-success';
     else if (skill.value >= 50) progressClass = 'bg-warning';
     return ['progress-bar', progressClass];
   }, [skill.value]);

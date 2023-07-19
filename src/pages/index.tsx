@@ -1,3 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { graphql, PageProps } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 import React, { FC } from 'react';
@@ -11,11 +13,40 @@ import { User } from 'types';
 interface GetUserQuery {
   user: User;
 }
+interface GetJSONUser {
+  record: User;
+}
+
+const useFetchData = (initialUser: User) => {
+  const { data } = useQuery({
+    queryKey: ['users'],
+    queryFn: ({ signal }) => {
+      return axios.get<GetJSONUser>(process.env.JSONBIN_URL || '', {
+        signal,
+        headers:
+          process.env.NODE_ENV !== 'production'
+            ? {
+                'X-Master-Key': process.env.JSONBIN_API_KEY,
+              }
+            : {
+                'X-Access-Key': process.env.JSONBIN_API_KEY,
+              },
+      });
+    },
+  });
+
+  const combinedData: User = { ...initialUser, ...data?.data?.record, img: initialUser.img };
+
+  return combinedData;
+};
 
 const IndexPage: FC<PageProps<GetUserQuery>> = (props) => {
   const {
-    data: { user },
+    data: { user: initialUser },
   } = props;
+  const user = useFetchData(initialUser);
+  if (!user) return null;
+
   const image = getImage(user.img);
   const imgUrl = image?.images.fallback?.src;
   // Remove last slash
@@ -35,10 +66,9 @@ const IndexPage: FC<PageProps<GetUserQuery>> = (props) => {
   );
 };
 
-export const query = graphql`
+export const query = graphql/* GraphQL */ `
   query GetUser {
     user {
-      about
       imgAlt
       name
       title
@@ -50,47 +80,6 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData
         }
-      }
-      skillsSet {
-        id
-        name
-        skills {
-          id
-          name
-          value
-        }
-      }
-      experience {
-        id
-        company {
-          name
-          website
-        }
-        location {
-          city
-          state
-          country
-        }
-        role
-        duration {
-          start
-          end
-        }
-        description
-      }
-      education {
-        id
-        college
-        location {
-          city
-          state
-          country
-        }
-        duration {
-          start
-          end
-        }
-        degree
       }
     }
   }

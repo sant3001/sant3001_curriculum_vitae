@@ -7,7 +7,7 @@ interface ExperienceRowProps {
   experience: Experience;
 }
 
-const formatExp = (date: Date) => moment(date, 'DD-MMM-YYYY').format('MMM YYYY');
+const formatExp = (date: Date | string) => moment(date).format('MMM YYYY');
 
 export const ExperienceRow: FC<ExperienceRowProps> = (props) => {
   const { experience: exp } = props;

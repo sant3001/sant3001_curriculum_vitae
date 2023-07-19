@@ -2,13 +2,6 @@ import type { ImageDataLike } from 'gatsby-plugin-image/dist/src/components/hook
 
 export enum NodeType {
   USER_NODE_TYPE = `User`,
-  SKILL_SET_TYPE = `SkillSet`,
-  SKILL_NODE_TYPE = `Skill`,
-  EXPERIENCE_NODE_TYPE = `Experience`,
-  EDUCATION_NODE_TYPE = `Education`,
-  COMPANY_NODE_TYPE = `Company`,
-  DURATION_NODE_TYPE = `Duration`,
-  LOCATION_NODE_TYPE = `Location`,
 }
 
 export interface User {

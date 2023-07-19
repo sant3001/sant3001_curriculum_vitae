@@ -9,7 +9,7 @@ interface MainProps {
 }
 
 const Main: FC<MainProps> = ({ user }) => {
-  const formatEdu = (date: Date) => moment(date, 'DD-MMM-YYYY').format('YYYY');
+  const formatEdu = (date: Date | string) => moment(date).format('YYYY');
   return (
     <div className="main col-sm-8 col-xs-12 white p-4 pt-5">
       <div className="row">

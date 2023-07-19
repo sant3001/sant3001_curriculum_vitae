@@ -105,6 +105,6 @@
       "plugins/*": ["./plugins/*"]
     }
   },
-  "include": ["./src/**/*", "./gatsby-*.ts", "./plugins/**/*"],
+  "include": ["./src/**/*", "./gatsby-*.ts", "./gatsby-*.tsx", "./plugins/**/*"],
   "exclude": ["node_modules"]
 }
