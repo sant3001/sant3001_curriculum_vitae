@@ -21,15 +21,15 @@ const useFetchData = (initialUser: User) => {
   const { data } = useQuery({
     queryKey: ['users'],
     queryFn: ({ signal }) => {
-      return axios.get<GetJSONUser>(process.env.JSONBIN_URL || '', {
+      return axios.get<GetJSONUser>(process.env.GATSBY_JSONBIN_URL || '', {
         signal,
         headers:
           process.env.NODE_ENV !== 'production'
             ? {
-                'X-Master-Key': process.env.JSONBIN_API_KEY,
+                'X-Master-Key': process.env.GATSBY_JSONBIN_API_KEY,
               }
             : {
-                'X-Access-Key': process.env.JSONBIN_API_KEY,
+                'X-Access-Key': process.env.GATSBY_JSONBIN_API_KEY,
               },
       });
     },
