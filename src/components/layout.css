@@ -20,6 +20,9 @@ body {
     background-color: #00334D;
     color: white;
 }
+.sidebar {
+    display: none;
+}
 .white {
     background-color: white;
 }

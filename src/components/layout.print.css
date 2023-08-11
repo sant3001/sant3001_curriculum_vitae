@@ -49,20 +49,17 @@ RESET
         background-color: white;
         padding: 0;
         margin: 0;
-        /*width: 100vw;*/
-        /*height: 100vh;*/
     }
     .a4 {
         max-width: 100%;
     }
-    .container-lg {
-        /*width: 100vw;*/
-        /*height: 100vh;*/
-    }
-    .container-lg>.row {
-        /*height: 100vh;*/
-    }
-    .container-lg>.row>.colored {
-        /*height: 100vh;*/
+    .sidebar {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: calc(100vw/3);
+        z-index: -1;
     }
 }

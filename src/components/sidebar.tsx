@@ -139,6 +139,7 @@ const Sidebar: FC<SideBarProps> = ({ user, image }) => {
           </div>
         </React.Fragment>
       ))}
+      <div className="sidebar colored col-xs-12" />
     </div>
   );
 };
