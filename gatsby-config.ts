@@ -46,6 +46,7 @@ const config: GatsbyConfig = {
           src: `${__dirname}/src`,
           components: `${__dirname}/src/components`,
           types: `${__dirname}/src/types`,
+          hooks: `${__dirname}/src/hooks`,
           pages: `${__dirname}/src/pages`,
         },
         extensions: ['js', 'ts', 'tsx'],

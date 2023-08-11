@@ -21,6 +21,9 @@ body {
     color: white;
 }
 .sidebar {
+    min-height: 100vh;
+}
+.sidebar-background {
     display: none;
 }
 .white {

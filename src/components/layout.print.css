@@ -53,7 +53,7 @@ RESET
     .a4 {
         max-width: 100%;
     }
-    .sidebar {
+    .sidebar-background {
         display: block;
         position: fixed;
         top: 0;

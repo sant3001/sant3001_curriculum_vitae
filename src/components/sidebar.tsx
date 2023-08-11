@@ -1,9 +1,11 @@
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React, { FC, useMemo } from 'react';
 import { BsGeoAlt, BsEnvelopeFill } from 'react-icons/bs';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { useUser } from './context';
+import { Spinner } from 'components/Spinner';
 import { useMarkdownToHTML } from 'src/hooks';
-import { User, Skill } from 'types';
+import { Skill } from 'types';
 
 interface SkillProps {
   skill: Skill;
@@ -38,16 +40,13 @@ const SkillRow: FC<SkillProps> = ({ skill }) => {
   );
 };
 
-interface SideBarProps {
-  user: User;
-  image?: IGatsbyImageData;
-}
-
-const Sidebar: FC<SideBarProps> = ({ user, image }) => {
+const Sidebar: FC = () => {
+  const user = useUser();
   const html = useMarkdownToHTML(user.about);
+  const image = getImage(user.img);
 
   return (
-    <div className="col-sm-4 col-xs-12 colored overflow-hidden p-4 pb-5 p-sm-3 pb-sm-5 p-md-4 pb-md-5">
+    <div className="sidebar col-sm-4 col-xs-12 colored overflow-hidden p-4 pb-5 p-sm-3 pb-sm-5 p-md-4 pb-md-5">
       {image && (
         <div className="mt-2 mt-md-5">
           <div className="row">
@@ -67,7 +66,7 @@ const Sidebar: FC<SideBarProps> = ({ user, image }) => {
           <h2 className="h6">{user.title}</h2>
         </div>
       )}
-      {html && (
+      {html ? (
         <>
           <div className="mt-5 text-center">
             <h5>About Me</h5>
@@ -78,6 +77,8 @@ const Sidebar: FC<SideBarProps> = ({ user, image }) => {
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </>
+      ) : (
+        <Spinner />
       )}
       {(user.addressLine1 || user.phoneNumber || user.email) && (
         <>
@@ -125,21 +126,25 @@ const Sidebar: FC<SideBarProps> = ({ user, image }) => {
           </div>
         </>
       )}
-      {(user.skillsSet || []).map((ss) => (
-        <React.Fragment key={ss.id}>
-          <div className="mt-5 text-center">
-            <h5>{ss.name}</h5>
-          </div>
-          <div className="mt-4 skills">
-            <div className="row align-items-center row-cols-2 row-cols-sm-1 row-cols-md-2 gy-2">
-              {ss.skills.map((p) => (
-                <SkillRow key={p.id} skill={p} />
-              ))}
+      {user.skillsSet?.length ? (
+        user.skillsSet.map((ss) => (
+          <React.Fragment key={ss.id}>
+            <div className="mt-5 text-center">
+              <h5>{ss.name}</h5>
             </div>
-          </div>
-        </React.Fragment>
-      ))}
-      <div className="sidebar colored col-xs-12" />
+            <div className="mt-4 skills">
+              <div className="row align-items-center row-cols-2 row-cols-sm-1 row-cols-md-2 gy-2">
+                {ss.skills.map((p) => (
+                  <SkillRow key={p.id} skill={p} />
+                ))}
+              </div>
+            </div>
+          </React.Fragment>
+        ))
+      ) : (
+        <Spinner />
+      )}
+      <div className="sidebar-background colored col-xs-12" />
     </div>
   );
 };

@@ -102,6 +102,7 @@
       "components/*": ["./src/components/*"],
       "pages/*": ["./src/pages/*"],
       "types": ["./src/types"],
+      "hooks": ["./src/hooks"],
       "plugins/*": ["./plugins/*"]
     }
   },

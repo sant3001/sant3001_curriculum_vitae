@@ -32,6 +32,7 @@ module.exports = {
           ['components', path.resolve(__dirname, './src/components')],
           ['pages', path.resolve(__dirname, './src/pages')],
           ['types', path.resolve(__dirname, './src/types')],
+          ['hooks', path.resolve(__dirname, './src/hooks')],
           ['plugins', path.resolve(__dirname, './plugins')],
         ],
         extensions: ['.ts', '.js', '.jsx', '.tsx'],
@@ -55,6 +56,7 @@ module.exports = {
     ],
     'prefer-object-spread': 'error',
     'no-underscore-dangle': 'off',
+    'import/prefer-default-export': 'off',
     'consistent-this': ['error', 'self'],
     'max-len': [
       'error',

@@ -1,15 +1,12 @@
-import moment from 'moment';
 import React, { FC } from 'react';
 import { FaBriefcase, FaUniversity } from 'react-icons/fa';
-import { ExperienceRow } from 'components/ExperienceRow';
-import { User } from 'types';
+import { useUser } from './context';
+import { ExperienceRow } from './ExperienceRow';
+import { EducationRow } from 'components/EducationRow';
+import { Spinner } from 'components/Spinner';
 
-interface MainProps {
-  user: User;
-}
-
-const Main: FC<MainProps> = ({ user }) => {
-  const formatEdu = (date: Date | string) => moment(date).format('YYYY');
+const Main: FC = () => {
+  const user = useUser();
   return (
     <div className="main col-sm-8 col-xs-12 white p-4 pt-5">
       <div className="row">
@@ -23,36 +20,26 @@ const Main: FC<MainProps> = ({ user }) => {
             </div>
           </div>
           <h3 className="h2">Professional Experience</h3>
-          <br />
-          <br />
-          {(user.experience || []).map((exp) => (
-            <ExperienceRow key={`exp-row-${exp.id}`} experience={exp} />
-          ))}
-          <br />
+          <div className="mt-5 mb-3">
+            {user.experience?.length > 0 ? (
+              user.experience.map((exp) => <ExperienceRow key={`exp-row-${exp.id}`} experience={exp} />)
+            ) : (
+              <Spinner />
+            )}
+          </div>
           <div className="category">
             <div className="colored rounded-circle text-center align-middle">
               <FaUniversity />
             </div>
           </div>
           <h3 className="h2">Education</h3>
-          <br />
-          <br />
-          {(user.education || []).map((edu) => {
-            return (
-              <div className="body-item" key={edu.id}>
-                <div className="body-dot colored" />
-                <h4 className="d-inline">{edu.college}</h4>
-                <h6 className="d-inline">
-                  {edu.location && <>, {[edu.location.city, edu.location.state || edu.location.country].join(' ')}</>}
-                  <span>&nbsp;&mdash;&nbsp;</span>
-                  <em>{edu.degree}</em>
-                </h6>
-                <p className="text-uppercase mb-2">
-                  {formatEdu(edu.duration.start)} - {edu.duration.end ? formatEdu(edu.duration.end) : 'Present'}
-                </p>
-              </div>
-            );
-          })}
+          <div className="mt-5 mb-3">
+            {user.education?.length > 0 ? (
+              user.education.map((edu) => <EducationRow key={edu.id} education={edu} />)
+            ) : (
+              <Spinner />
+            )}
+          </div>
         </div>
       </div>
     </div>
