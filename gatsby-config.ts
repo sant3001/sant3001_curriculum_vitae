@@ -1,9 +1,13 @@
 import dotEnv from 'dotenv';
 import type { GatsbyConfig } from 'gatsby';
+import adapter from 'gatsby-adapter-netlify';
 
 dotEnv.config({ path: `.env${process.env.NODE_ENV ? `.${process.env.NODE_ENV}` : ''}` });
 
 const config: GatsbyConfig = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
   pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
     title: process.env.SITE_TITLE,
@@ -35,7 +39,6 @@ const config: GatsbyConfig = {
         icon: process.env.FAVICON ? `src/images/${process.env.FAVICON}` : undefined, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
