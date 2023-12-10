@@ -15,7 +15,7 @@ const SkillRow: FC<SkillProps> = ({ skill }) => {
   const classes = useMemo(() => {
     let progressClass = 'bg-danger';
     if (skill.value >= 90) progressClass = 'bg-success';
-    else if (skill.value >= 50) progressClass = 'bg-warning';
+    else if (skill.value >= 50) progressClass = 'bg-info';
     return ['progress-bar', progressClass];
   }, [skill.value]);
 

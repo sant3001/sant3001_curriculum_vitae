@@ -1,2 +1,2 @@
-export * from './useFetchData';
+export * from './fetchData';
 export * from './useMarkdownToHTML';

@@ -4,6 +4,9 @@ import { User } from 'types';
 export const UserContext = createContext<User | null>(null);
 
 export const useUser = () => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return useContext(UserContext)!;
+  const user = useContext(UserContext);
+  if (!user) {
+    throw new Error('useUser must be used along with <UserContext.Provider />');
+  }
+  return user;
 };

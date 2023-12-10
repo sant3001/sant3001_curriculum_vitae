@@ -1,24 +1,31 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql } from 'gatsby';
+import type { GetServerDataReturn, PageProps } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { HelmetProps } from 'react-helmet';
 import { UserContext } from 'components/context';
 import Layout from 'components/layout';
 import Main from 'components/Main';
 import Seo from 'components/seo';
 import Sidebar from 'components/sidebar';
-import { useFetchData } from 'hooks';
+import { fetchData } from 'hooks';
 import { User } from 'types';
 
 interface GetUserQuery {
   user: User;
 }
 
-const IndexPage: FC<PageProps<GetUserQuery>> = (props) => {
+interface ServerDataProps {
+  userServer?: User;
+}
+
+const IndexPage: FC<PageProps<GetUserQuery, unknown, unknown, ServerDataProps>> = (props) => {
   const {
-    data: { user: initialUser },
+    data: { user: userGatsby },
+    serverData: { userServer },
   } = props;
-  const user = useFetchData(initialUser);
+
+  const user: User = useMemo(() => ({ ...userGatsby, ...userServer, img: userGatsby.img }), [userGatsby, userServer]);
   if (!user) return null;
 
   const image = getImage(user.img);
@@ -60,5 +67,14 @@ export const query = graphql/* GraphQL */ `
     }
   }
 `;
+
+export const getServerData = async (): GetServerDataReturn<ServerDataProps> => {
+  const data = await fetchData();
+  return {
+    status: 200,
+    headers: {},
+    props: { userServer: data },
+  };
+};
 
 export default IndexPage;
