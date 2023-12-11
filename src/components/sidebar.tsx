@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React, { FC, useMemo } from 'react';
 import { BsGeoAlt, BsEnvelopeFill } from 'react-icons/bs';
@@ -40,18 +41,28 @@ const SkillRow: FC<SkillProps> = ({ skill }) => {
   );
 };
 
-const Sidebar: FC = () => {
+const Sidebar: FC = (props) => {
   const user = useUser();
   const html = useMarkdownToHTML(user.about);
-  const image = getImage(user.img);
+  const data = useStaticQuery(graphql/* GraphQL */ `
+    query {
+      image: file(name: { eq: "HeadShotSantiago" }) {
+        cloudinary: childCloudinaryAsset {
+          gatsbyImageData(aspectRatio: 1)
+        }
+      }
+    }
+  `);
+
+  const gatsbyImage = getImage(data.image.cloudinary);
 
   return (
     <div className="sidebar col-sm-4 col-xs-12 colored overflow-hidden p-4 pb-5 p-sm-3 pb-sm-5 p-md-4 pb-md-5">
-      {image && (
+      {gatsbyImage && (
         <div className="mt-2 mt-md-5">
           <div className="row">
             <div className="col-8 col-sm-11 mx-auto rounded-circle p-0 overflow-hidden">
-              <GatsbyImage image={image} alt={user.imgAlt} className="img-fluid" />
+              <GatsbyImage image={gatsbyImage} alt={user.imgAlt} className="img-fluid" />
             </div>
           </div>
         </div>

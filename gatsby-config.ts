@@ -62,7 +62,33 @@ const config: GatsbyConfig = {
         display: 'swap',
       },
     },
-    'cvdata',
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `cv/`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-cloudinary',
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        uploadFolder: 'cv',
+        transformTypes: ['CloudinaryAsset'],
+      },
+    },
   ],
 };
 
